@@ -8,8 +8,8 @@
 </head>
 <body>
     <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
-    <h1>GPT-4 Fine-Tuner</h1>
-    <form method="POST">
+    <h1 class="main-title">GPT-4 Fine-Tuner</h1>
+    <form method="POST" class="fine-tuner-form">
         <label for="system_prompt">System Prompt:</label><br>
         <textarea id="system_prompt" name="system_prompt" rows="4" cols="50"></textarea><br><br>
 
@@ -37,7 +37,7 @@
             <input type="checkbox" id="multi_prompt_mode" name="multi_prompt_mode"> Multi-Prompt Mode
         </label><br><br>
 
-        <button type="submit" id="submit-btn"><i class="fas fa-paper-plane"></i> Submit</button>
+        <button type="submit" id="submit-btn" class="submit-button"><i class="fas fa-paper-plane"></i> Submit</button>
     </form>
 
     <div id="response"></div>
