@@ -262,3 +262,11 @@ body, button, textarea, select, #response {
 #response:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
+/* Enhancing styles for a beautiful and elegant look */
+body { font-family: 'Arial', sans-serif; background-color: #f0f0f5; color: #333; }
+h1, h2, h3, h4, h5, h6 { color: #4a4a4a; }
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.button { background-color: #0066cc; color: #fff; padding: 10px 20px; border-radius: 5px; }
+.button:hover { background-color: #005bb5; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
