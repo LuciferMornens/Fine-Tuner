@@ -1,58 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GPT-4 Fine-Tuning Interface - Create and manage training data for GPT-4 model fine-tuning">
     <title>GPT-4 Fine-Tuner</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
-    <h1 class="main-title">GPT-4 Fine-Tuner</h1>
-    <div class="container">
-        <form method="POST" class="fine-tuner-form">
-            <div class="form-group">
-                <label for="system_prompt">System Prompt:</label>
-                <textarea id="system_prompt" name="system_prompt" rows="4" cols="50"></textarea>
-            </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+    </button>
 
-            <div id="prompts-container">
-                <div class="prompt-set">
-                    <div class="form-group">
-                        <label for="user_input">User Input:</label>
-                        <textarea class="user-input" name="user_input[]" rows="4" cols="50"></textarea>
-                    </div>
+    <main class="main-content">
+        <h1 class="main-title">GPT-4 Fine-Tuner</h1>
+        
+        <div class="container">
+            <form method="POST" class="fine-tuner-form" aria-label="Fine-tuning form">
+                <div class="form-group">
+                    <label for="system_prompt">System Prompt:</label>
+                    <textarea 
+                        id="system_prompt" 
+                        name="system_prompt" 
+                        rows="4" 
+                        placeholder="Enter the system prompt..."
+                        aria-describedby="system-prompt-help"
+                    ></textarea>
+                    <small id="system-prompt-help" class="help-text">Define the behavior and context for the AI model</small>
+                </div>
 
-                    <div class="form-group">
-                        <label for="assistant_input">Assistant Input:</label>
-                        <textarea class="assistant-input" name="assistant_input[]" rows="4" cols="50"></textarea>
-                    </div>
+                <div id="prompts-container">
+                    <div class="prompt-set" role="group" aria-label="Prompt pair 1">
+                        <div class="form-group">
+                            <label for="user_input_1">User Input:</label>
+                            <textarea 
+                                id="user_input_1"
+                                class="user-input" 
+                                name="user_input[]" 
+                                rows="4"
+                                placeholder="Enter user message..."
+                            ></textarea>
+                        </div>
 
-                    <div class="form-group weight-container" style="display: none;">
-                        <label for="weight">Weight:</label>
-                        <select class="weight" name="weight[]">
-                            <option value="1">1</option>
-                            <option value="0">0</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="assistant_input_1">Assistant Input:</label>
+                            <textarea 
+                                id="assistant_input_1"
+                                class="assistant-input" 
+                                name="assistant_input[]" 
+                                rows="4"
+                                placeholder="Enter assistant response..."
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group weight-container" style="display: none;">
+                            <label for="weight_1">Weight:</label>
+                            <select id="weight_1" class="weight" name="weight[]" aria-label="Training example weight">
+                                <option value="1">Weight: 1 (Include)</option>
+                                <option value="0">Weight: 0 (Exclude)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <button type="button" id="add-prompt" class="button"><i class="fas fa-plus"></i> Add Prompt</button>
-            </div>
+                <div class="form-actions">
+                    <button 
+                        type="button" 
+                        id="add-prompt" 
+                        class="button"
+                        aria-label="Add new prompt pair"
+                    >
+                        <i class="fas fa-plus" aria-hidden="true"></i> Add Prompt
+                    </button>
 
-            <div class="form-group">
-                <label for="multi_prompt_mode">
-                    <input type="checkbox" id="multi_prompt_mode" name="multi_prompt_mode"> Multi-Prompt Mode
-                </label>
-            </div>
+                    <label class="checkbox-wrapper" for="multi_prompt_mode">
+                        <input 
+                            type="checkbox" 
+                            id="multi_prompt_mode" 
+                            name="multi_prompt_mode"
+                            aria-describedby="multi-prompt-help"
+                        > 
+                        <span>Multi-Prompt Mode</span>
+                    </label>
+                    <small id="multi-prompt-help" class="help-text">Enable to add multiple prompt pairs</small>
+                </div>
 
-            <button type="submit" id="submit-btn" class="button"><i class="fas fa-paper-plane"></i> Submit</button>
-        </form>
-    </div>
+                <button 
+                    type="submit" 
+                    id="submit-btn" 
+                    class="button submit-button"
+                    aria-label="Submit form"
+                >
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Submit
+                </button>
+            </form>
+        </div>
 
-    <div id="response" class="response"></div>
+        <div id="response" class="response" role="alert" aria-live="polite"></div>
+    </main>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
