@@ -1,121 +1,88 @@
 
 :root {
-    --bg-color: #f5f5fa;
-    --text-color: #333;
-    --primary-color: #4a90e2;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #6200ea;
     --secondary-color: #ffffff;
-    --accent-color: #e94e77;
-    --transition-duration: 0.4s;
-}
-
-.dark-theme {
-    --bg-color: #2c3e50;
-    --text-color: #ecf0f1;
-    --primary-color: #2980b9;
-    --secondary-color: #34495e;
-    --accent-color: #e74c3c;
+    --accent-color: #03dac6;
+    --border-radius: 12px;
+    --transition-duration: 0.3s;
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background: var(--bg-color);
-    transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    color: var(--text-color);
-}
-
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--primary-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
-}
-
-.theme-toggle:hover {
-    background-color: var(--accent-color);
-}
-
-.container {
-    width: 85%;
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 30px;
-    background-color: var(--secondary-color);
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
 h1 {
+    font-size: 2.8em;
+    margin: 1em 0;
     color: var(--primary-color);
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
+    text-align: center;
 }
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
+.container {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px var(--shadow-color);
+    padding: 2.5em;
+    max-width: 900px;
+    width: 90%;
+    margin: 2em 0;
+    transition: box-shadow var(--transition-duration) ease;
 }
 
-a:hover {
-    text-decoration: underline;
+.container:hover {
+    box-shadow: 0 14px 28px var(--shadow-color);
 }
 
 .button {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 12px 24px;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1em 2em;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
     transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+    box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 .button:hover {
     background-color: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2em;
-    }
-}
-
-body, button, textarea, select, #response {
-    transition: background-color var(--transition-duration) ease,
-                color var(--transition-duration) ease,
-                border-color var(--transition-duration) ease;
+    transform: translateY(-4px);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2em;
 }
 
-#response {
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all var(--transition-duration) ease;
+textarea {
+    width: 100%;
+    padding: 1.2em;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    resize: vertical;
+    transition: border-color var(--transition-duration) ease;
+    font-size: 1.1em;
 }
 
-#response:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2em;
+    }
 }
 
