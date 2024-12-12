@@ -1,17 +1,17 @@
 
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
+    --bg-color: #f4f4f9;
+    --text-color: #333;
     --primary-color: #6200ea;
-    --secondary-color: #ffffff;
-    --accent-color: #03dac6;
-    --border-radius: 12px;
-    --transition-duration: 0.3s;
-    --shadow-color: rgba(0, 0, 0, 0.2);
+    --secondary-color: #fff;
+    --accent-color: #ff4081;
+    --border-radius: 10px;
+    --transition-duration: 0.4s;
+    --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
     margin: 0;
@@ -19,60 +19,63 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
     transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
 }
 
 h1 {
-    font-size: 2.8em;
-    margin: 1em 0;
+    font-size: 3em;
+    margin: 20px 0;
     color: var(--primary-color);
     text-align: center;
+    letter-spacing: 0.05em;
 }
 
 .container {
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 20px var(--shadow-color);
-    padding: 2.5em;
-    max-width: 900px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 30px;
+    max-width: 800px;
     width: 90%;
-    margin: 2em 0;
+    margin: 20px 0;
     transition: box-shadow var(--transition-duration) ease;
 }
 
 .container:hover {
-    box-shadow: 0 14px 28px var(--shadow-color);
+    box-shadow: 0 15px 35px var(--shadow-color);
 }
 
 .button {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 1em 2em;
+    padding: 12px 24px;
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
     box-shadow: 0 6px 12px var(--shadow-color);
+    font-size: 1.1em;
 }
 
 .button:hover {
     background-color: var(--accent-color);
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 }
 
 .form-group {
-    margin-bottom: 2em;
+    margin-bottom: 20px;
 }
 
 textarea {
     width: 100%;
-    padding: 1.2em;
+    padding: 15px;
     border-radius: var(--border-radius);
     border: 1px solid var(--primary-color);
     resize: vertical;
     transition: border-color var(--transition-duration) ease;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 textarea:focus {
@@ -82,7 +85,7 @@ textarea:focus {
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
     }
 }
 
