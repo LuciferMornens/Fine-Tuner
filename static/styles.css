@@ -89,3 +89,132 @@ textarea:focus {
     }
 }
 
+
+/* Typography Enhancements */
+h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    margin: 10px 0;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Button Variations */
+.button-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+    box-shadow: 0 6px 12px var(--shadow-color);
+    font-size: 1.1em;
+}
+
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: border-color var(--transition-duration) ease, transform var(--transition-duration) ease;
+    box-shadow: 0 6px 12px var(--shadow-color);
+    font-size: 1.1em;
+}
+
+/* Card Components */
+.card {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 20px;
+    margin: 20px;
+    transition: box-shadow var(--transition-duration) ease, transform var(--transition-duration) ease;
+}
+
+.card:hover {
+    box-shadow: 0 15px 35px var(--shadow-color);
+    transform: translateY(-5px);
+}
+
+/* Form Elements */
+input[type='text'], input[type='email'], input[type='password'] {
+    width: 100%;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    transition: border-color var(--transition-duration) ease;
+    font-size: 1em;
+}
+
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* Navigation Bar */
+.navbar {
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color var(--transition-duration) ease;
+}
+
+.navbar a:hover {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--secondary-color);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Additional Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .card {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .button, .button-primary, .button-secondary {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
