@@ -11,34 +11,44 @@
     <h1 class="main-title">GPT-4 Fine-Tuner</h1>
     <div class="container">
         <form method="POST" class="fine-tuner-form">
-            <label for="system_prompt">System Prompt:</label><br>
-            <textarea id="system_prompt" name="system_prompt" rows="4" cols="50"></textarea><br><br>
+            <div class="form-group">
+                <label for="system_prompt">System Prompt:</label>
+                <textarea id="system_prompt" name="system_prompt" rows="4" cols="50"></textarea>
+            </div>
 
             <div id="prompts-container">
                 <div class="prompt-set">
-                    <label for="user_input">User Input:</label><br>
-                    <textarea class="user-input" name="user_input[]" rows="4" cols="50"></textarea><br><br>
+                    <div class="form-group">
+                        <label for="user_input">User Input:</label>
+                        <textarea class="user-input" name="user_input[]" rows="4" cols="50"></textarea>
+                    </div>
 
-                    <label for="assistant_input">Assistant Input:</label><br>
-                    <textarea class="assistant-input" name="assistant_input[]" rows="4" cols="50"></textarea><br><br>
+                    <div class="form-group">
+                        <label for="assistant_input">Assistant Input:</label>
+                        <textarea class="assistant-input" name="assistant_input[]" rows="4" cols="50"></textarea>
+                    </div>
 
-                    <div class="weight-container" style="display: none;">
+                    <div class="form-group weight-container" style="display: none;">
                         <label for="weight">Weight:</label>
                         <select class="weight" name="weight[]">
                             <option value="1">1</option>
                             <option value="0">0</option>
-                        </select><br><br>
+                        </select>
                     </div>
                 </div>
             </div>
 
-            <button type="button" id="add-prompt" class="button"><i class="fas fa-plus"></i> Add Prompt</button><br><br>
+            <div class="form-group">
+                <button type="button" id="add-prompt" class="button"><i class="fas fa-plus"></i> Add Prompt</button>
+            </div>
 
-            <label for="multi_prompt_mode">
-                <input type="checkbox" id="multi_prompt_mode" name="multi_prompt_mode"> Multi-Prompt Mode
-            </label><br><br>
+            <div class="form-group">
+                <label for="multi_prompt_mode">
+                    <input type="checkbox" id="multi_prompt_mode" name="multi_prompt_mode"> Multi-Prompt Mode
+                </label>
+            </div>
 
-            <button type="submit" id="submit-btn" class="submit-button"><i class="fas fa-paper-plane"></i> Submit</button>
+            <button type="submit" id="submit-btn" class="button"><i class="fas fa-paper-plane"></i> Submit</button>
         </form>
     </div>
 
